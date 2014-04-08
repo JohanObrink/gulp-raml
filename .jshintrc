@@ -1,0 +1,19 @@
+{
+  "curly": false,
+  "eqnull": true,
+  "eqeqeq": true,
+  "undef": true,
+  "maxcomplexity": 7,
+  "node": true,
+  "esnext": true,
+  "globals": {
+    "describe": true,
+    "xdescribe": true,
+    "it": true,
+    "xit": true,
+    "before": true,
+    "beforeEach": true,
+    "after": true,
+    "afterEach": true
+  }
+}

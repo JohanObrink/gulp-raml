@@ -1,0 +1,42 @@
+{
+  "name": "gulp-raml",
+  "version": "0.1.0",
+  "description": "A gulp plugin for running raml-parse",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/JohanObrink/gulp-raml.git"
+  },
+  "keywords": [
+    "raml",
+    "raml-parse",
+    "gulp",
+    "gulpplugin"
+  ],
+  "author": "Johan Öbrink <johan.obrink@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JohanObrink/gulp-raml/issues"
+  },
+  "homepage": "https://github.com/JohanObrink/gulp-raml",
+  "devDependencies": {
+    "jshint-stylish": "~0.1.5",
+    "gulp-watch": "~0.5.3",
+    "gulp-mocha": "~0.4.1",
+    "gulp": "~3.6.0",
+    "gulp-jshint": "~1.5.3",
+    "chai": "~1.9.1",
+    "sinon-chai": "~2.5.0",
+    "sinon": "~1.9.1"
+  },
+  "dependencies": {
+    "gulp-util": "~2.2.14",
+    "through2": "~0.4.1",
+    "chalk": "~0.4.0",
+    "map-stream": "~0.1.0",
+    "text-table": "~0.2.0"
+  }
+}
