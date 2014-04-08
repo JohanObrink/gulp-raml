@@ -7,10 +7,14 @@ module.exports = {
 
     options = options || {};
     var msg;
+    var description = chalk.yellow(
+      'Error ' + error.context + '.' + 
+      ((error.context_mark) ? ' line: ' + error.context_mark.line + ', col: ' + error.context_mark.column : '')
+    );
     var result = [
       '',
-      chalk.underline(error.context_mark.name),
-      chalk.yellow('Error ' + error.context + '. line: ' + error.context_mark.line + ', col: ' + error.context_mark.column),
+      chalk.underline(error.problem_mark.name),
+      description,
       [
         '',
         chalk.gray('line ' + error.problem_mark.line),

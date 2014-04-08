@@ -52,4 +52,24 @@ describe('default reporter', function () {
     console.log.restore();
   });
 
+  it('reports the error correctly when context_mark is null', function () {
+    sinon.stub(console, 'log');
+    error.context_mark = null;
+    reporter(error);
+    var expected = '\n'+
+      '\u001b[4m.' + '/test/fixtures/example.raml' +
+      '\u001b[24m' +
+      '\n' +
+      '\u001b[33m' + 'Error while parsing a block mapping.' +
+      '\u001b[39m' +
+      '\n' +
+      '  \u001b[90m' + 'line 34' +
+      '\u001b[39m  \u001b[90m' + 'col 14' +
+      '\u001b[39m  \u001b[34m' + 'expected <block end>, but found }' +
+      '\u001b[39m' +
+      '\n';
+    expect(console.log).calledWith(expected);
+    console.log.restore();
+  });
+
 });
