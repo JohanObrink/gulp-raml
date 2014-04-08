@@ -14,7 +14,7 @@ A gulp plugin for parsing raml using [RAML Parser](https://github.com/raml-org/r
 
 ```javascript
 var raml = require('gulp-raml');
-var gulp   = require('gulp');
+var gulp = require('gulp');
 
 gulp.task('raml', function() {
   gulp.src('./raml/*.raml')
