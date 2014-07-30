@@ -37,6 +37,7 @@
     "through2": "~0.4.1",
     "chalk": "~0.4.0",
     "map-stream": "~0.1.0",
-    "text-table": "~0.2.0"
+    "text-table": "~0.2.0", 
+    "raml-parser":"~0.8.7"
   }
 }
