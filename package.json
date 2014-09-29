@@ -33,6 +33,7 @@
     "sinon": "~1.9.1"
   },
   "dependencies": {
+    "raml-parser": "~0.8.7",
     "gulp-util": "~2.2.14",
     "through2": "~0.4.1",
     "chalk": "~0.4.0",
