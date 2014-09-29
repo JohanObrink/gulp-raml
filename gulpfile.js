@@ -12,7 +12,7 @@ gulp.task('test', function () {
   return gulp.src(paths.scripts.concat(paths.tests))
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'))
-    .pipe(mocha({reporter:'Spec'}));
+    .pipe(mocha({reporter:'spec'}));
 });
 
 /**
