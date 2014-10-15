@@ -12,8 +12,7 @@ var ramlPlugin = function (opt) {
   return map(function (file, cb) {
     if (file.isNull()) return cb(null, file); // pass along
     if (file.isStream()) return cb(new PluginError(PLUGIN_NAME, 'Streaming not supported'));
-
-    raml.load(file.contents, file.base)
+    raml.load(file.contents, file.path)
       .then(function (data) {
         file.raml = { success: true, data: data };
         cb(null, file);

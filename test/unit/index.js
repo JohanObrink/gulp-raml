@@ -4,6 +4,7 @@ var raml = require('../../src'),
   chai = require('chai'),
   expect = chai.expect,
   gutil = require('gulp-util'),
+  gulp = require('gulp'),
   path = require('path');
 
 describe('gulp-raml', function() {
@@ -137,5 +138,18 @@ describe('gulp-raml', function() {
       stream.end();
     });
 
+    it('should handle includes of globbed files correctly', function(done) {
+      var stream = raml();
+      stream.on('data', function(newFile) {
+        expect(newFile.raml.success).to.exist;
+        expect(newFile.raml.success).to.be.true;
+        expect(newFile.raml.data).to.exist;
+        expect(newFile.raml.message).to.not.exist;
+      });
+      stream.once('end', function() {
+        done();
+      });
+      gulp.src('./test/**/*.raml').pipe(stream);
+    });
   });
 });
