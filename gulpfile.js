@@ -19,7 +19,7 @@ gulp.task('test', function () {
  * Watch for file changes
  */
 gulp.task('watch', function () {
-  gulp.watch(paths.scripts.concat(paths.tests).concat(['package.json']), ['test']);
+  gulp.watch(paths.scripts.concat(paths.tests).concat(['package.json','test/fixtures/']), ['test']);
 });
 
 /**
