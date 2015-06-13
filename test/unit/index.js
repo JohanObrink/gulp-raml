@@ -8,7 +8,7 @@ var raml = require('../../src'),
 
 describe('gulp-raml', function() {
 
-  var ramlExample;
+  var ramlExample, includeExample;
 
   beforeEach(function () {
     ramlExample = [
@@ -17,6 +17,14 @@ describe('gulp-raml', function() {
       'title: World Music API',
       'baseUri: http://example.api.com/{version}',
       'version: v1'
+    ].join('\n');
+    includeExample = [
+      '#%RAML 0.8',
+      '---',
+      'title: World Music API',
+      'baseUri: http://example.api.com/{version}',
+      'version: v1',
+      '/songs: !include example.yaml'
     ].join('\n');
   });
 
@@ -137,5 +145,27 @@ describe('gulp-raml', function() {
       stream.end();
     });
 
+    it('should success including file', function(done) {
+      var fakeFile = new gutil.File({
+        path: './test/fixtures/include.raml',
+        cwd: './test/',
+        base: './test/',
+        contents: new Buffer(includeExample)
+      });
+
+      var stream = raml();
+      stream.on('data', function (newFile) {
+        expect(newFile.raml.success).to.exist;
+        expect(newFile.raml.success).to.be.true;
+        expect(newFile.raml.data).to.exist;
+        expect(newFile.raml.message).to.not.exist;
+      });
+      stream.once('end', function () {
+        done();
+      });
+
+      stream.write(fakeFile);
+      stream.end();
+    });
   });
 });

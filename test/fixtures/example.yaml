@@ -1,0 +1,7 @@
+get:
+  queryParameters:
+    genre:
+      description: filter the songs by genre
+delete:
+  description: |
+    This method will *delete* an **individual song**
